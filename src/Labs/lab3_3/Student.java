@@ -2,20 +2,29 @@ package Labs.lab3_3;
 
 public class Student implements Comparable<Student> {
     private final String name;
-    private final double averageGrade;
+    private final int age;
 
-    public Student(String name, double averageGrade) {
+    public Student(String name, int age) {
         this.name = name;
-        this.averageGrade = averageGrade;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     @Override
     public int compareTo(Student other) {
-        return Double.compare(this.averageGrade, other.averageGrade);
-    }
+        int nameComp = this.name.compareTo(other.name);
 
-    @Override
-    public String toString() {
-        return name + " (" + averageGrade + ")";
+        if (nameComp != 0) {
+            return nameComp;
+        }
+
+        return Integer.compare(this.age, other.age);
     }
 }
