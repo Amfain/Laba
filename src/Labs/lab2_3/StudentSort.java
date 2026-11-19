@@ -5,7 +5,7 @@ import java.util.List;
 
 public class StudentSort implements Sorting<Student> {
 
-    // 1. НЕСТАБИЛЬНАЯ сортировка (QuickSort) — сортируем по возрасту
+
     private void quickSortByAge(List<Student> students, int low, int high) {
         if (low >= high) {
             return;
@@ -38,7 +38,7 @@ public class StudentSort implements Sorting<Student> {
         }
     }
 
-    // 2. СТАБИЛЬНАЯ сортировка (MergeSort) — сортируем по имени
+
     private void mergeSortByName(List<Student> students, int start, int end) {
         if (start >= end) {
             return;
@@ -94,10 +94,10 @@ public class StudentSort implements Sorting<Student> {
         if (students == null || students.size() <= 1) {
             return;
         }
-        // Шаг 1: Сортируем по возрасту (нестабильной сортировкой QuickSort)
+
         quickSortByAge(students, 0, students.size() - 1);
 
-        // Шаг 2: Сортируем по имени (стабильной сортировкой MergeSort), сохраняя порядок возрастов
+
         mergeSortByName(students, 0, students.size() - 1);
     }
 }
